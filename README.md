@@ -7,6 +7,7 @@ Client (Android app) uses its wifi in order to gather information about the surr
 If you want to execute it at your own machine you can edit the serverLoc.py file in order to correspond to the mac addresses of your access points in use. 
 
 HOT TO USE
+
 You may execute serverLoc.py with the following format:
 
   python serverLoc.py <ip_address_of_your_server> <port_that_server_is_going_to_listen>
