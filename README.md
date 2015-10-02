@@ -10,7 +10,7 @@ If you want to execute it at your own machine you can edit the serverLoc.py file
 
 You may execute serverLoc.py with the following format:
 
-  python serverLoc.py /<ip_address_of_your_server> /<port_that_server_is_going_to_listen>
+  python serverLoc.py \\<ip_address_of_your_server> /<port_that_server_is_going_to_listen>
   
 For the xml-rpc functionality the Very thin xmlrpc client library for Android platform was used:
     https://code.google.com/p/android-xmlrpc/
