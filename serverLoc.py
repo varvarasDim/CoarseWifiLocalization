@@ -2,6 +2,7 @@ from SimpleXMLRPCServer import SimpleXMLRPCServer
 import datetime, socket, xmlrpclib, random, array, sys
 
 #Create server
+#First argument is ip and second is port
 server = SimpleXMLRPCServer((str(sys.argv[1]), int(sys.argv[2])))
 
 #XML-RPC methods
@@ -40,10 +41,10 @@ class MyFuncs:
                 #Here administrator specifies which hotspot corresponds to coordinates
                 #example
                 #If strongest network is this, send those coordinates
-                if strongestHotspotBssid == '00:13:49:a7:73:3b':  
+                if strongestHotspotBssid == '00:11:22:33:44:55':  
                         map["latitude"] = 38.28346905497185
                         map["longitude"]= 21.764259338378906
-                elif strongestHotspotBssid == '00:0e:6a:d3:d9:59':  
+                elif strongestHotspotBssid == '00:22:33:44:55:66':  
                         map["latitude"] = 39.15961564104208
                         map["longitude"]= 20.985431671142578
                 #If you see this network send those coordinates (even though it may not be the strongest)
@@ -56,28 +57,7 @@ class MyFuncs:
                         map["longitude"]= '21.7' 
                 
                 return map
-        #This is used for IOS devices where only mac address of hotspot is sent and not a scan
-        def getCoordinatesIOS(self, mac): 
-                print 'Received Mac was:',mac
-                strongestHotspotBssid = mac
-                coordinatesString = ''
-                map={}
-                #If strongest network is this, send those coordinates
-                if strongestHotspotBssid == '00:13:49:a7:73:3b':  
-                        map["latitude"] = 38.29111551510991
-                        map["longitude"]= 21.79641902446747
-                        
-                elif strongestHotspotBssid == '00:0e:6a:d3:d9:59':  
-                        map["latitude"] = 39.15961564104208
-                        map["longitude"]= 20.985431671142578
-                        
-                #Else return something close to these coordinates (this is used to create variation for testing purposes)
-                else:
-                        map["latitude"] = '38.2' 
-                        map["longitude"]= '21.7' 
-
-                coordinatesString = str(map["latitude"])+'-'+str(map["longitude"])
-                return coordinatesString
+        
     
 server.register_instance(MyFuncs())
 
